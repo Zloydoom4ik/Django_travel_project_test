@@ -9,7 +9,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     extra = 1
     readonly_fields = ['preview']
     fields = ['image', 'preview']
-    
+
     def preview(self, obj):
         if obj.image:
             return format_html(
@@ -17,12 +17,12 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
                 obj.image.url
             )
         return "Нет изображения"
-    
+
     preview.short_description = 'Превью'
+
 
 @admin.register(Place)
 class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
-    #list_display = ('title', 'lat', 'lng')
     inlines = (
         ImageInline,
     )

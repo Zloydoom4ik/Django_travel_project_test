@@ -16,4 +16,7 @@ def place_detail(request, place_id):
             "lat": place.lat
         }
     }
-    return JsonResponse(data, json_dumps_params={'ensure_ascii': False, 'indent': 2})
+    return JsonResponse(
+        data,
+        json_dumps_params={'ensure_ascii': False, 'indent': 2}
+    )
