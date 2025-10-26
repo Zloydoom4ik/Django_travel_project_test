@@ -24,7 +24,7 @@ class Image(models.Model):
         verbose_name='Место'
     )
     image = models.ImageField('Картинка', upload_to='places/')
-    position = models.PositiveIntegerField('Позиция', default=0)
+    position = models.PositiveIntegerField('Позиция', default=0, db_index=True)
 
     class Meta:
         verbose_name = 'Изображение'
